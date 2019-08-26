@@ -147,12 +147,13 @@ alias l='ls --color -lhtr'
 In order to submit a job (whether interactive or non-interactive), you must submit a `bsub` command. For example:
 ```bash
 bsub -q long -g my_group -J my_name \
-     -M 8000000 -N -u myemail@genome.wustl.edu -a 'docker(registry.gsc.wustl.edu/genome/genome_perl_environment)' \
+     -M 8000000 -N -u myemail@genome.wustl.edu \
+     -a 'docker(registry.gsc.wustl.edu/genome/genome_perl_environment)' \
      -oo /gscmnt/gc2802/halllab/your-username/path/output_file \
      -R 'select[mem>8000 && gtmp>2] rusage[mem=8000, gtmp=2]' \
      /usr/bin/myprog
 ```
-For details on the meaning of these options, see https://confluence.ris.wustl.edu/display/ITKB/How+to+submit+LSF+jobs. Note that you must be on the VPN to view this page.
+For details on the meaning of these options, see https://confluence.ris.wustl.edu/display/ITKB/How+to+submit+LSF+jobs. This page does not include the `-a` option for specifying a Docker container, but it is required for the job to run. Note that you must be on the VPN to view this page.
 
 # Job groups
 In order to make sure everyone can run jobs on the cluster, if launching a large number of jobs, you should limit the number of jobs running at once by using a job group. For more information on using job groups, see: https://confluence.ris.wustl.edu/pages/viewpage.action?pageId=27592450. Note that you must be on the VPN to view this page.
