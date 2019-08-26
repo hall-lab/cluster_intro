@@ -126,7 +126,7 @@ export PS1='[\u@\h \W]\$ '
 # For less, don't fold long lines (-S), show detailed line data (-M), ignore case when searching (-i)
 # also, use zless to open gzipped files
 LESS="-SMi"
-alias less='zless'
+alias less='zless -S'
 
 # make the "ls" colors more readable on a black background
 export LS_COLORS="di=01;37;44:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=01;32"
