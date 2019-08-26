@@ -14,7 +14,7 @@ In order to log into the MGI cluster, you will need to have your MGI username an
   * `virtual-workstation5`
 
 To log in to `virtual-workstation3`:
-```
+```bash
 ssh your-MGI-username@virtual-workstation3.gsc.wustl.edu
 # your-MGI-username@virtual-workstation3.gsc.wustl.edu's password: [Enter your MGI password]
 ```
@@ -68,20 +68,19 @@ vi ~/.ssh/authorized_keys
 
 # Set the proper permissions on your keys
 chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
-
 ```
 
 # DO NOT do work on the virtual-workstation machines - use an interactive docker session instead
 
 To start an interactive docker session, execute the following command:
-```
+```bash
 bsub -Is -q docker-interactive -R 'rusage[gtmp=1] select[gtmp>1]' -a 'docker(registry.gsc.wustl.edu/genome/genome_perl_environment)'  /bin/bash -l
 ```
 
 # Docker
 
 The MGI cluster is Docker-enabled. This means that any job running on the cluster must be inside a "container". A good default Docker container for day-to-day use (used above) is: registry.gsc.wustl.edu/genome/genome_perl_environment.
-You don't need to understand much about Docker to use the MGI cluster, but if you are interested in learning more about Docker, here is a reference: https://docs.docker.com/engine/docker-overview/. Note: the syntax for our Docker implementation is different, but the guide serves as a good starting point.
+You don't need to understand much about Docker to use the MGI cluster, but if you are interested in learning more about Docker, here is a reference: https://confluence.ris.wustl.edu/display/ITKB/Docker. Note that you must be on the VPN to view this page.
 
 # Directory Setup
 Create your own directory on disk `gc2802` as follows:
@@ -102,7 +101,58 @@ recommend the following structure:
   - uncategorized and temporary analyses
 
 You can create the above directories with the following command:
-```
+```bash
 cd /gscmnt/gc2802/halllab/your-username
 mkdir -p projects src bin scratch
 ```
+
+# Environment Setup
+Add the following line to `~/.bashrc`
+
+```bash
+export PATH=/gscmnt/gc2719/halllab/bin:/gscmnt/gc2719/halllab/src/anaconda-2.0.1/bin:$PATH
+```
+
+## Useful `.bashrc` lines
+
+Add any or all of these to your `~/.bashrc` file to customize your environment.
+The system will automatically run this file each time you log on. If you modify it,
+your changes will appear after logging out and back in, or after you run `source ~/.bashrc`.
+
+```bash
+# terminal prompt as [username@blade14-4-10 current-dir]$
+export PS1='[\u@\h \W]\$ '
+
+# For less, don't fold long lines (-S), show detailed line data (-M), ignore case when searching (-i)
+# also, use zless to open gzipped files
+LESS="-SMi"
+alias less='zless'
+
+# make the "ls" colors more readable on a black background
+export LS_COLORS="di=01;37;44:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=01;32"
+LS_COLORS=$LS_COLORS:'*.tar=01;31'  # tar Archive             = Bold, Red
+LS_COLORS=$LS_COLORS:'*.tgz=01;31'  # tar/gzip Archive        = Bold, Red
+LS_COLORS=$LS_COLORS:'*.tbz2=01;31' # tar/bzip2 Archive       = Bold, Red
+LS_COLORS=$LS_COLORS:'*.Z=01;31'    # compress Archive        = Bold, Red
+LS_COLORS=$LS_COLORS:'*.gz=01;31'   # gzip Archive            = Bold, Red
+LS_COLORS=$LS_COLORS:'*.bz2=01;31'  # bzip2 Archive           = Bold, Red
+LS_COLORS=$LS_COLORS:'*.zip=01;31'  # zip Archive             = Bold, Red
+LS_COLORS=$LS_COLORS:'*.dmg=01;31'  # Disk Image              = Bold, Red
+
+# human readable directory listing sorted by recently modified
+alias l='ls --color -lhtr'
+```
+
+# Submitting Jobs
+In order to submit a job (whether interactive or non-interactive), you must submit a `bsub` command. For example:
+```bash
+bsub -q long -g my_group -J my_name \
+     -M 8000000 -N -u myemail@genome.wustl.edu -a 'docker(registry.gsc.wustl.edu/genome/genome_perl_environment)' \
+     -oo /gscmnt/gc2802/halllab/your-username/path/output_file \
+     -R 'select[mem>8000 && gtmp>2] rusage[mem=8000, gtmp=2]' \
+     /usr/bin/myprog
+```
+For details on the meaning of these options, see https://confluence.ris.wustl.edu/display/ITKB/How+to+submit+LSF+jobs. Note that you must be on the VPN to view this page.
+
+# Job groups
+In order to make sure everyone can run jobs on the cluster, if launching a large number of jobs, you should limit the number of jobs running at once by using a job group. For more information on using job groups, see: https://confluence.ris.wustl.edu/pages/viewpage.action?pageId=27592450. Note that you must be on the VPN to view this page.
