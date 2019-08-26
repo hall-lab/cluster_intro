@@ -70,3 +70,39 @@ vi ~/.ssh/authorized_keys
 chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
 
 ```
+
+# DO NOT do work on the virtual-workstation machines - use an interactive docker session instead
+
+To start an interactive docker session, execute the following command:
+```
+bsub -Is -q docker-interactive -R 'rusage[gtmp=1] select[gtmp>1]' -a 'docker(registry.gsc.wustl.edu/genome/genome_perl_environment)'  /bin/bash -l
+```
+
+# Docker
+
+The MGI cluster is Docker-enabled. This means that any job running on the cluster must be inside a "container". A good default Docker container for day-to-day use (used above) is: registry.gsc.wustl.edu/genome/genome_perl_environment.
+You don't need to understand much about Docker to use the MGI cluster, but if you are interested in learning more about Docker, here is a reference: https://docs.docker.com/engine/docker-overview/. Note: the syntax for our Docker implementation is different, but the guide serves as a good starting point.
+
+# Directory Setup
+Create your own directory on disk `gc2802` as follows:
+```
+mkdir /gscmnt/gc2802/halllab/your-username
+```
+
+You are free to organize the contents of that directory as desired. However, we
+recommend the following structure:
+
+- projects
+  - analysis projects, generally organized into separate publications
+- src
+  - external software as well as internal source code and git repositories
+- bin
+  - executable files that are symbolic linked to binaries in the `src` directory
+- scratch
+  - uncategorized and temporary analyses
+
+You can create the above directories with the following command:
+```
+cd /gscmnt/gc2802/halllab/your-username
+mkdir -p projects src bin scratch
+```
