@@ -97,7 +97,7 @@ mkdir -p projects src bin scratch
 ```
 
 # Environment setup
-Add the following line to `~/.bashrc`
+Add the following line to the end of this file: `~/.bashrc`  
 
 ```bash
 export PATH=/gscmnt/gc2719/halllab/bin:/gscmnt/gc2719/halllab/src/anaconda-2.0.1/bin:$PATH
