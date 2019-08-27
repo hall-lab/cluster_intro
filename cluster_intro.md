@@ -1,4 +1,4 @@
-# VPN Setup
+# VPN setup
 
 To log into the MGI cluster and access IT services on your personal laptop or offsite, you will need to set up a VPN. Instructions on downloading and setting up Cisco AnyConnect are here: https://wustl.app.box.com/s/o7lvu49qkrr20xauj1lq6bcgft2zu87a
 
@@ -72,7 +72,7 @@ vi ~/.ssh/authorized_keys
 chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
 ```
 
-# Directory Setup
+# Directory setup
 Create your own directory on disk `gc2802` as follows:
 ```
 mkdir /gscmnt/gc2802/halllab/your-username
@@ -96,7 +96,7 @@ cd /gscmnt/gc2802/halllab/your-username
 mkdir -p projects src bin scratch
 ```
 
-# Environment Setup
+# Environment setup
 Add the following line to `~/.bashrc`
 
 ```bash
@@ -135,7 +135,7 @@ alias l='ls --color -lhtr'
 
 ---
 
-# Submitting Jobs
+# Submitting jobs
 To start your work, the first step is to submit a job to an LSF queue. See: https://confluence.ris.wustl.edu/display/ITKB/LSF. Note that this link will only work while on the VPN.
 In order to submit a job (whether interactive or non-interactive), you must submit a `bsub` command.
 
@@ -164,3 +164,17 @@ You don't need to understand much about Docker to use the MGI cluster, but if yo
 
 # Job groups
 In order to make sure everyone can run jobs on the cluster, if launching a large number of jobs, you should limit the number of jobs running at once by using a job group. For more information on using job groups, see: https://confluence.ris.wustl.edu/pages/viewpage.action?pageId=27592450. Note that you must be on the VPN to view this page.
+
+---
+
+# Transferring files between the cluster and your local machine
+
+To transfer files from your local machine to the cluster, type the following on your local machine:
+```bash
+rsync -avP /local/path/to/myfile your-MGI-username@virtual-workstation1.gsc.wustl.edu:/gscmnt/path/to/destination
+```
+
+To transfer files from the cluster to your local machine, type the following on your local machine:
+```bash
+rsync -avP your-MGI-username@virtual-workstation1.gsc.wustl.edu:/gscmnt/path/to/myfile /local/path/to/destination
+```
