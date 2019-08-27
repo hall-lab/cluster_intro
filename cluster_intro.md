@@ -103,7 +103,7 @@ Add the following line to `~/.bashrc`
 export PATH=/gscmnt/gc2719/halllab/bin:/gscmnt/gc2719/halllab/src/anaconda-2.0.1/bin:$PATH
 ```
 
-# Useful `.bashrc` lines
+## Useful `.bashrc` lines
 
 Add any or all of these to your `~/.bashrc` file to customize your environment.
 The system will automatically run this file each time you log on. If you modify it,
@@ -133,15 +133,13 @@ LS_COLORS=$LS_COLORS:'*.dmg=01;31'  # Disk Image              = Bold, Red
 alias l='ls --color -lhtr'
 ```
 
-# Docker
-
-The MGI cluster is Docker-enabled. This means that any job running on the cluster must be inside a "container". A good default Docker container for day-to-day use (used above) is: registry.gsc.wustl.edu/genome/genome_perl_environment.
-You don't need to understand much about Docker to use the MGI cluster, but if you are interested in learning more about Docker, here is a reference: https://confluence.ris.wustl.edu/display/ITKB/Docker. Note that you must be on the VPN to view this page.
+---
 
 # Submitting Jobs
+To start your work, the first step is to submit a job to an LSF queue. See: https://confluence.ris.wustl.edu/display/ITKB/LSF. Note that this link will only work while on the VPN.
 In order to submit a job (whether interactive or non-interactive), you must submit a `bsub` command.
 
-###DO NOT do work on the virtual-workstation machines - use an interactive docker session instead
+### DO NOT do work on the virtual-workstation machines - use an interactive docker session instead
 
 To start an interactive Docker session, execute the following command:
 ```bash
@@ -157,9 +155,12 @@ bsub -q long -g my_group -J my_name \
      -R 'select[mem>8000 && gtmp>2] rusage[mem=8000, gtmp=2]' \
      /usr/bin/myprogram
 ```
-For details on the meaning of these options, see https://confluence.ris.wustl.edu/display/ITKB/How+to+submit+LSF+jobs. This page does not include the `-a` option for specifying a Docker container, but it is required for the job to run. Note that you must be on the VPN to view this page.
+For details on the meaning of these options, see https://confluence.ris.wustl.edu/display/ITKB/How+to+submit+LSF+jobs. This page does not include the `-a` option for specifying a Docker container, but this option is required for the job to run on the MGI cluster. Note that you must be on the VPN to view this page.
+
+# Docker
+
+The MGI cluster is Docker-enabled. This means that any job running on the cluster must be inside a "container". A good default Docker container for day-to-day use (used above) is: registry.gsc.wustl.edu/genome/genome_perl_environment.
+You don't need to understand much about Docker to use the MGI cluster, but if you are interested in learning more about Docker, here is a reference: https://confluence.ris.wustl.edu/display/ITKB/Docker. Note that you must be on the VPN to view this page.
 
 # Job groups
 In order to make sure everyone can run jobs on the cluster, if launching a large number of jobs, you should limit the number of jobs running at once by using a job group. For more information on using job groups, see: https://confluence.ris.wustl.edu/pages/viewpage.action?pageId=27592450. Note that you must be on the VPN to view this page.
-
-# 
