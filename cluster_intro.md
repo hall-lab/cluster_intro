@@ -136,15 +136,17 @@ alias l='ls --color -lhtr'
 ---
 
 # Submitting jobs
-To start your work, the first step is to submit a job to an LSF queue. See: https://confluence.ris.wustl.edu/display/ITKB/LSF. Note that this link will only work while on the VPN.
+To start your work, the first step is to submit a job to an LSF queue. See: https://confluence.ris.wustl.edu/display/ITKB/LSF. Note that this link will only work while on the VPN. Consult the child pages to learn how to manage LSF jobs.
 In order to submit a job (whether interactive or non-interactive), you must submit a `bsub` command.
 
 ### DO NOT do work on the virtual-workstation machines - use an interactive docker session instead
 
-To start an interactive Docker session, execute the following command:
+To start an interactive LSF job, execute the following command:
 ```bash
 bsub -Is -q docker-interactive -R 'rusage[gtmp=1] select[gtmp>1]' -a 'docker(registry.gsc.wustl.edu/genome/genome_perl_environment)'  /bin/bash -l
 ```
+
+To exit an interactive LSF job, type `exit`.
 
 To submit a non-interactive job:
 ```bash
