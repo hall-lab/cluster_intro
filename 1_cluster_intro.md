@@ -180,3 +180,14 @@ To transfer files from the cluster to your local machine, type the following on 
 ```bash
 rsync -avP your-MGI-username@virtual-workstation1.gsc.wustl.edu:/gscmnt/path/to/myfile /local/path/to/destination
 ```
+
+---
+
+# Basic cluster etiquette
+
+A few things to keep in mind when working on the cluster:
+* Do all of your work in your own directory
+* Do not modify files in shared directories or other user's directories
+* Do not launch large numbers of jobs at a time without limiting them with a job group
+* We recommend launching a test job before launching many parallel jobs
+* If you aren't sure about something, ask!
