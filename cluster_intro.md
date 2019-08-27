@@ -6,6 +6,8 @@ Note: your VPN login credentials are your WUSTL Key and password
 
 # Logging in to the MGI cluster
 
+The MGI cluster is where we store data and do most of our computation.
+
 In order to log into the MGI cluster, you will need to have your MGI username and password set up. You can choose to connect to any of the following machines:
   * `virtual-workstation1`
   * `virtual-workstation2`
@@ -23,7 +25,7 @@ ssh your-MGI-username@virtual-workstation3.gsc.wustl.edu
 By default, you are required to enter in your password each time you access the cluster.
 To save time, you can grant password-less access for your lab computer with RSA keys.
 
-On your laptop:
+**In a terminal on your laptop**:
 ```bash
 cd ~/.ssh/
 
@@ -57,7 +59,7 @@ cat id_rsa.pub
 chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
 ```
 
-On the MGI cluster:
+**In a terminal after logging in to the MGI cluster:**
 ```bash
 mkdir -p ~/.ssh
 cd ~/.ssh
@@ -69,18 +71,6 @@ vi ~/.ssh/authorized_keys
 # Set the proper permissions on your keys
 chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
 ```
-
-# DO NOT do work on the virtual-workstation machines - use an interactive docker session instead
-
-To start an interactive docker session, execute the following command:
-```bash
-bsub -Is -q docker-interactive -R 'rusage[gtmp=1] select[gtmp>1]' -a 'docker(registry.gsc.wustl.edu/genome/genome_perl_environment)'  /bin/bash -l
-```
-
-# Docker
-
-The MGI cluster is Docker-enabled. This means that any job running on the cluster must be inside a "container". A good default Docker container for day-to-day use (used above) is: registry.gsc.wustl.edu/genome/genome_perl_environment.
-You don't need to understand much about Docker to use the MGI cluster, but if you are interested in learning more about Docker, here is a reference: https://confluence.ris.wustl.edu/display/ITKB/Docker. Note that you must be on the VPN to view this page.
 
 # Directory Setup
 Create your own directory on disk `gc2802` as follows:
@@ -113,7 +103,7 @@ Add the following line to `~/.bashrc`
 export PATH=/gscmnt/gc2719/halllab/bin:/gscmnt/gc2719/halllab/src/anaconda-2.0.1/bin:$PATH
 ```
 
-## Useful `.bashrc` lines
+# Useful `.bashrc` lines
 
 Add any or all of these to your `~/.bashrc` file to customize your environment.
 The system will automatically run this file each time you log on. If you modify it,
@@ -143,17 +133,33 @@ LS_COLORS=$LS_COLORS:'*.dmg=01;31'  # Disk Image              = Bold, Red
 alias l='ls --color -lhtr'
 ```
 
+# Docker
+
+The MGI cluster is Docker-enabled. This means that any job running on the cluster must be inside a "container". A good default Docker container for day-to-day use (used above) is: registry.gsc.wustl.edu/genome/genome_perl_environment.
+You don't need to understand much about Docker to use the MGI cluster, but if you are interested in learning more about Docker, here is a reference: https://confluence.ris.wustl.edu/display/ITKB/Docker. Note that you must be on the VPN to view this page.
+
 # Submitting Jobs
-In order to submit a job (whether interactive or non-interactive), you must submit a `bsub` command. For example:
+In order to submit a job (whether interactive or non-interactive), you must submit a `bsub` command.
+
+###DO NOT do work on the virtual-workstation machines - use an interactive docker session instead
+
+To start an interactive Docker session, execute the following command:
+```bash
+bsub -Is -q docker-interactive -R 'rusage[gtmp=1] select[gtmp>1]' -a 'docker(registry.gsc.wustl.edu/genome/genome_perl_environment)'  /bin/bash -l
+```
+
+To submit a non-interactive job:
 ```bash
 bsub -q long -g my_group -J my_name \
      -M 8000000 -N -u myemail@genome.wustl.edu \
      -a 'docker(registry.gsc.wustl.edu/genome/genome_perl_environment)' \
      -oo /gscmnt/gc2802/halllab/your-username/path/output_file \
      -R 'select[mem>8000 && gtmp>2] rusage[mem=8000, gtmp=2]' \
-     /usr/bin/myprog
+     /usr/bin/myprogram
 ```
 For details on the meaning of these options, see https://confluence.ris.wustl.edu/display/ITKB/How+to+submit+LSF+jobs. This page does not include the `-a` option for specifying a Docker container, but it is required for the job to run. Note that you must be on the VPN to view this page.
 
 # Job groups
 In order to make sure everyone can run jobs on the cluster, if launching a large number of jobs, you should limit the number of jobs running at once by using a job group. For more information on using job groups, see: https://confluence.ris.wustl.edu/pages/viewpage.action?pageId=27592450. Note that you must be on the VPN to view this page.
+
+# 
