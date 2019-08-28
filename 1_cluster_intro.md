@@ -164,6 +164,10 @@ For details on the meaning of these options, see https://confluence.ris.wustl.ed
 The MGI cluster is Docker-enabled. This means that any job running on the cluster must be inside a "container". A good default Docker container for day-to-day use (used above) is: registry.gsc.wustl.edu/genome/genome_perl_environment.
 You don't need to understand much about Docker to use the MGI cluster, but if you are interested in learning more about Docker, here is a reference: https://confluence.ris.wustl.edu/display/ITKB/Docker. Note that you must be on the VPN to view this page.
 
+**Useful Docker images:**
+
+A collection of useful Docker images can be found in this repository: https://github.com/hall-lab/docker-toolbox. Note that you will need to be added to the Hall lab GitHub group to be able to view this repository.
+
 # Job groups
 In order to make sure everyone can run jobs on the cluster, if launching a large number of jobs, you should limit the number of jobs running at once by using a job group. For more information on using job groups, see: https://confluence.ris.wustl.edu/pages/viewpage.action?pageId=27592450. Note that you must be on the VPN to view this page.
 
