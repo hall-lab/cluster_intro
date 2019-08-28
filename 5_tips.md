@@ -25,3 +25,9 @@ Students can get Spotify premium for $4.99 a month. This also gives you access t
 # Fuzzy cuteness
 
 If you need a smile, join the #pets page on the Hall lab slack. Enjoy cute pictures of your lab-mate's pets and share pictures of your own.
+
+# Some cheat sheets for quick reference
+
+* R: cookbook for R - http://www.cookbook-r.com
+* sed: useful one-line script - http://sed.sourceforge.net/sed1line.txt
+
