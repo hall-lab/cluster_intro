@@ -1,9 +1,9 @@
-# Example of a project layout from Neil:
+# Example of a project layout
 
 Neil is one of our CS experts in lab and he contributed some tips about how to keep your code and working environment tidy and organized, and here's an example of his direcotry layout when he started a new project:
 ( Feel free to adjust it/ make your own!)
 
-<img src="https://github.com/hall-lab/cluster_intro/blob/master/projec_layout_exp.png" width="450" height="450" />
+<img src="https://github.com/hall-lab/cluster_intro/blob/master/projec_layout_exp.png" width="470" height="525" />
 
 And he explained the duty of each directory as:
 * the bin directory is for scripts
