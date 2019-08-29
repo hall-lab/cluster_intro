@@ -30,6 +30,7 @@ If you need a smile, join the #pets page on the Hall lab slack. Enjoy cute pictu
 
 * **R**: cookbook for R - http://www.cookbook-r.com
 * **SED**: useful one-line script - http://sed.sourceforge.net/sed1line.txt
+* **ggplot2**: Powerful R plotting package - https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
 * Create a personal cheat sheet of your own frequently used commands! 
 
 # Directory and script organization
