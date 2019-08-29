@@ -38,6 +38,6 @@ To run the above script on the cluster, save the code above in a document titled
 ```bash
 bsub -q research-hpc -M 1000000 -R "rusage[mem=1000] select[mem>1000]" -oo %J.log -a "docker(registry.gsc.wustl.edu/genome/genome_perl_environment)" "Rscript histogram.R input.txt"
 ```
-This will generate a file called "input.pdf" that contains a histogram plot of the data contained in input.txt.
+This will generate a file called "input.txt.pdf" that contains a histogram plot of the data contained in input.txt.
 ### Note that this is a very simple R script that does not require any additional libraries, therefore the copy of R available in genome_perl_environment Docker container is sufficient. For more complex R scripts, you may want to look into the Docker containers found here: https://github.com/hall-lab/docker-toolbox or build your own.
 
