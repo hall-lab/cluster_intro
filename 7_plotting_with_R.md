@@ -7,7 +7,7 @@ The Rscript below will generate a histogram from an input file containing a colu
 # print usage
 usage <- function() {
   cat(
-    'usage: histogram.R <file> <breaks>
+    'usage: histogram.R <file>
     
     histogram.R
     description: Plot a histogram from a column of numbers
