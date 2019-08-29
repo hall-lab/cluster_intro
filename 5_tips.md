@@ -16,7 +16,7 @@ This will allow you to search through everything in your history that matches wh
 
 # Visualizing tab-delimited data
 
-It can often be difficult to display tab-delimited data when the fields have variable length. An easy solution to this is to use `column -t`. For example:
+It can often be difficult to properly visualize tab-delimited data when the fields have variable length. An easy solution to this is to use `column -t`. For example:
 ![Column Example](ColumnExample.png?raw=true "Column Example")
 
 # Free GitHub pro for students
