@@ -19,6 +19,18 @@ This will allow you to search through everything in your history that matches wh
 It can often be difficult to properly visualize tab-delimited data when the fields have variable length. An easy solution to this is to use `column -t`. For example:
 ![Column Example](ColumnExample.png?raw=true "Column Example")
 
+# Monitoring jobs
+
+To watch jobs over a period of time without having to constantly type `bjobs`, `watch` can be used. For example, to watch all of your currently running jobs (refreshing once every second):
+```
+watch -n 1 bjobs
+```
+Any options can be added to `bjobs` while using `watch`. For example, to watch all jobs on the `research-hpc` queue:
+```
+watch -n 1 bjobs -q ccdg
+```
+To exit `watch`, press CTRL-C
+
 # Free GitHub pro for students
 
 Students can get free unlimited public and private GitHub repositories. Sign up for the GitHub Student Developer Pack here: https://education.github.com/pack
