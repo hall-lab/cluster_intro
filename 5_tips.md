@@ -26,20 +26,19 @@ Students can get Spotify premium for $4.99 a month. This also gives you access t
 
 If you need a smile, join the #pets page on the Hall lab slack. Enjoy cute pictures of your lab-mate's pets and share pictures of your own.
 
-# Some cheat sheets for quick reference
+# Quick reference cheat sheets
 
 * **R**: cookbook for R - http://www.cookbook-r.com
 * **SED**: useful one-line script - http://sed.sourceforge.net/sed1line.txt
 * Create a personal cheat sheet of your own frequently used commands! 
 
-# Organize the scripts
+# Directory and script organization
 
-Here're some tips to help with organizing the scripts:
+Here are some tips for organizing your projects:
 * Separate scripts and data into different directories
 * Version control 
   - Github 
-  - Add info when name the scripts (like a date suffix)
-  - Add info inside the script
-  - etc
-* Name the scripts by the order of execution, e.g.: 0-preprocess_data.sh, 1-quality_control.sh, ect.
+  - Add info when naming script (like a date suffix)
+  - Add information inside the script
+* Name the scripts by the order of execution, e.g.: 0-preprocess_data.sh, 1-quality_control.sh, etc.
 
