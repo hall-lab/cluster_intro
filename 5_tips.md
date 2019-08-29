@@ -14,6 +14,11 @@ To quickly search through your bash history using the up and down arrows, add th
 ```
 This will allow you to search through everything in your history that matches whatever you have already typed into the command line. For example, if you type "cd" and press the up arrow, you will search through everythign in your bash history that starts with "cd". This is similar to using "ctrl-r" but the search is anchored to the beginning of the line you have typed.
 
+# Visualizing tab-delimited data
+
+It can often be difficult to display tab-delimited data when the fields have variable length. An easy solution to this is to use `column -t`. For example:
+![Column Example](ColumnExample.png?raw=true "Column Example")
+
 # Free GitHub pro for students
 
 Students can get free unlimited public and private GitHub repositories. Sign up for the GitHub Student Developer Pack here: https://education.github.com/pack
@@ -24,13 +29,13 @@ Students can get Spotify premium for $4.99 a month. This also gives you access t
 
 # Fuzzy cuteness
 
-If you need a smile, join the #pets page on the Hall lab slack. Enjoy cute pictures of your lab-mate's pets and share pictures of your own.
+If you need a smile, join the #pets page on the Hall lab slack. Enjoy cute pictures of your lab-mate's pets and share pictures of your own. Pet pictures/videos from the internet are also welcome!
 
 # Quick reference cheat sheets
 
 * **R**: cookbook for R - http://www.cookbook-r.com
 * **SED**: useful one-line script - http://sed.sourceforge.net/sed1line.txt
-* **ggplot2**: Powerful R plotting package - https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
+* **ggplot2**: powerful R plotting package - https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
 * Create a personal cheat sheet of your own frequently used commands! 
 
 # Directory and script organization
