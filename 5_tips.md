@@ -28,17 +28,18 @@ If you need a smile, join the #pets page on the Hall lab slack. Enjoy cute pictu
 
 # Some cheat sheets for quick reference
 
-* R: cookbook for R - http://www.cookbook-r.com
-* sed: useful one-line script - http://sed.sourceforge.net/sed1line.txt
-* Create a personal cheat sheet of your own most frequently used commands! 
+* **R**: cookbook for R - http://www.cookbook-r.com
+* **SED**: useful one-line script - http://sed.sourceforge.net/sed1line.txt
+* Create a personal cheat sheet of your own frequently used commands! 
 
 # Organize the scripts
 
-Here're some tips to help with organizing the scripts so later the right one in need can be found easier:
-* Separate scripts from the data in different directories
-* Version control (any could work)
-  - Github is a useful tool (as long as you don't push the entire data directory to it)
-  - Add the info to the name of the script (like a date suffix)
-  - Add info inside the script 
-* Name the scripts by the order of execution in a project, e.g.: 0-preprocess_data.sh, 1-quality_control.sh, ect.
+Here're some tips to help with organizing the scripts:
+* Separate scripts and data into different directories
+* Version control 
+  - Github 
+  - Add info when name the scripts (like a date suffix)
+  - Add info inside the script
+  - etc
+* Name the scripts by the order of execution, e.g.: 0-preprocess_data.sh, 1-quality_control.sh, ect.
 
