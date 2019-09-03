@@ -150,7 +150,7 @@ To exit an interactive LSF job, type `exit`.
 
 To submit a non-interactive job:
 ```bash
-bsub -q long -g my_group -J my_name \
+bsub -q research-hpc -g my_group -J my_name \
      -M 8000000 -N -u myemail@genome.wustl.edu \
      -a 'docker(registry.gsc.wustl.edu/genome/genome_perl_environment)' \
      -oo /gscmnt/gc2802/halllab/your-username/path/output_file \
