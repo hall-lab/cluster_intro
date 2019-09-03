@@ -153,7 +153,7 @@ To submit a non-interactive job:
 bsub -q research-hpc -g my_group -J my_name \
      -M 8000000 -N -u myemail@genome.wustl.edu \
      -a 'docker(registry.gsc.wustl.edu/genome/genome_perl_environment)' \
-     -oo /gscmnt/gc2802/halllab/your-username/path/output_file \
+     -oo /gscmnt/gc2802/halllab/your-username/log_path/error_or_record.log \
      -R 'select[mem>8000 && gtmp>2] rusage[mem=8000, gtmp=2]' \
      /usr/bin/myprogram
 ```
