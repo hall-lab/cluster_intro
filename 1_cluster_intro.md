@@ -194,4 +194,5 @@ A few things to keep in mind when working on the cluster:
 * Do not modify files in shared directories or other user's directories
 * Do not launch large numbers of jobs at a time without limiting them with a job group
 * We recommend launching a test job before launching many parallel jobs
+* When launching large numbers of jobs, keep in mind that LSF has a limit to the number of jobs that can pend at once. **Rotation students: if you're launching more than 200 jobs or so, talk to a lab member first!**
 * If you aren't sure about something, ask!
