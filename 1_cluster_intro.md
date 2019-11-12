@@ -1,6 +1,6 @@
 # Accessing MGI services
 
-To log into the MGI cluster and access IT services from campus, you must be connected to the WUSM-secure WiFi network. For access to these services offsite, you will need to set up a VPN. Instructions on downloading and setting up Cisco AnyConnect are here: https://wustl.app.box.com/s/o7lvu49qkrr20xauj1lq6bcgft2zu87a
+To log into the MGI cluster and access IT services from campus, you must be connected to the WUSM-secure WiFi network. For access to these services offsite (or from a different network), you will need to set up a VPN. Instructions on downloading and setting up Cisco AnyConnect are here: https://wustl.app.box.com/s/o7lvu49qkrr20xauj1lq6bcgft2zu87a
 
 Note: your VPN login credentials are your WUSTL Key and password
 
