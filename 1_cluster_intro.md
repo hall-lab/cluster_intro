@@ -1,6 +1,6 @@
-# VPN setup
+# Accessing MGI services
 
-To log into the MGI cluster and access IT services on your personal laptop or offsite, you will need to set up a VPN. Instructions on downloading and setting up Cisco AnyConnect are here: https://wustl.app.box.com/s/o7lvu49qkrr20xauj1lq6bcgft2zu87a
+To log into the MGI cluster and access IT services from campus, you must be connected to the WUSM-secure WiFi network. For access to these services offsite, you will need to set up a VPN. Instructions on downloading and setting up Cisco AnyConnect are here: https://wustl.app.box.com/s/o7lvu49qkrr20xauj1lq6bcgft2zu87a
 
 Note: your VPN login credentials are your WUSTL Key and password
 
@@ -135,11 +135,16 @@ alias l='ls --color -lhtr'
 
 ---
 
+# Docker
+
+The MGI cluster is Docker-enabled. This means that any job running on the cluster must be inside a "container". A good default Docker container for day-to-day use (used above) is: `registry.gsc.wustl.edu/genome/genome_perl_environment`.
+You don't need to understand much about Docker to use the MGI cluster, but if you are interested in learning more about Docker, here is a reference: https://confluence.ris.wustl.edu/display/ITKB/Docker. Note that you must be on WUSM-secure or the VPN to view this page.
+
 # Submitting jobs
-To start your work, the first step is to submit a job to an LSF queue. See: https://confluence.ris.wustl.edu/display/ITKB/LSF. Note that this link will only work while on the VPN. Consult the child pages to learn how to manage LSF jobs.
+To start your work, the first step is to submit a job to an LSF queue. See: https://confluence.ris.wustl.edu/display/ITKB/LSF. Note that this link will only work while on WUSM-secure or the VPN. Consult the child pages to learn how to manage LSF jobs.
 In order to submit a job (whether interactive or non-interactive), you must submit a `bsub` command.
 
-### DO NOT do work on the virtual-workstation machines - use an interactive docker session instead
+### DO NOT do work directly on the virtual-workstation machines. Instead, log into a virtual-workstation and launch an interactive docker session so that your computations are run on a different blade
 
 To start an interactive LSF job, execute the following command:
 ```bash
@@ -157,19 +162,14 @@ bsub -q research-hpc -g my_group -J my_name \
      -R 'select[mem>8000 && gtmp>2] rusage[mem=8000, gtmp=2]' \
      /usr/bin/myprogram
 ```
-For details on the meaning of these options, see https://confluence.ris.wustl.edu/display/ITKB/How+to+submit+LSF+jobs. This page does not include the `-a` option for specifying a Docker container, but this option is required for the job to run on the MGI cluster. Note that you must be on the VPN to view this page.
-
-# Docker
-
-The MGI cluster is Docker-enabled. This means that any job running on the cluster must be inside a "container". A good default Docker container for day-to-day use (used above) is: registry.gsc.wustl.edu/genome/genome_perl_environment.
-You don't need to understand much about Docker to use the MGI cluster, but if you are interested in learning more about Docker, here is a reference: https://confluence.ris.wustl.edu/display/ITKB/Docker. Note that you must be on the VPN to view this page.
+For details on the meaning of these options, see https://confluence.ris.wustl.edu/display/ITKB/How+to+submit+LSF+jobs. This page does not include the `-a` option for specifying a Docker container, but this option is required for the job to run on the MGI cluster. Note that you must be on WUSM-secure or the VPN to view this page.
 
 **Useful Docker images:**
 
 A collection of useful Docker images can be found in this repository: https://github.com/hall-lab/docker-toolbox. Note that you will need to be added to the Hall lab GitHub group to be able to view this repository.
 
 # Job groups
-In order to make sure everyone can run jobs on the cluster, if launching a large number of jobs, you should limit the number of jobs running at once by using a job group. For more information on using job groups, see: https://confluence.ris.wustl.edu/pages/viewpage.action?pageId=27592450. Note that you must be on the VPN to view this page.
+In order to make sure everyone can run jobs on the cluster, if launching a large number of jobs, you should limit the number of jobs running at once by using a job group. For more information on using job groups, see: https://confluence.ris.wustl.edu/pages/viewpage.action?pageId=27592450. Note that you must be on WUSM-secure or the VPN to view this page.
 
 ---
 
