@@ -27,7 +27,7 @@ watch -n 1 bjobs
 ```
 Any options can be added to `bjobs` while using `watch`. For example, to watch all jobs on the `research-hpc` queue:
 ```
-watch -n 1 bjobs -q ccdg
+watch -n 1 bjobs -q research-hpc
 ```
 To exit `watch`, press CTRL-C
 
